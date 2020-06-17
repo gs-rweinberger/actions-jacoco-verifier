@@ -1,0 +1,24 @@
+name: 'Jacoco verifier'
+description: 'GitHub action that verify tests coverage using Jacoco report'
+inputs:
+  path:
+    description: 'Path to Jacoco xml report'
+    required: true
+  coverage-required:
+    description: 'Desired coverage. in float value between 0 and 1'
+    required: false
+    default: '0'
+  coverage-type: 
+    description: 'The type of coverage we want to validate'
+    required: false
+    default: 'line'
+  token:
+    description: 'GitHub Token for posting comments on PR'
+    required: false
+outputs:
+  coverage:
+    description: 'Final calculated coverage (line)'
+  
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
